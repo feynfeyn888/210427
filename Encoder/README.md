@@ -2,10 +2,6 @@
 Encoder/topic_subscribe.pyを実行する
 
 ## IP address
-各IPアドレス
-
-ルーター:
-DNSサーバ:
 
 ### Broker
 172.16.120.148
