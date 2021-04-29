@@ -4,7 +4,7 @@
 1. VSCodeを起動. ターミナルから、
     $conda activate DOCI
    で実行環境を起動する
-2. Encoder(ラズパイ)のtopic_subscriber.pyを実行し, 受信可能な状態にする
+2. ssh接続などでEncoder(ラズパイ)のtopic_subscriber.pyを実行し, 受信可能な状態にする
 3. topic_return.pyを実行. 符号器で送信したデータをPCで受信できるようになる
 4. main.pyを実行.
 5. output.txtにバイナリにて復号結果が表示される
