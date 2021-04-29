@@ -1,37 +1,57 @@
-# Decoder.shを実行
-sh Decode.sh
+## Quick Start
+
+```
+1. VSCodeを起動. ターミナルから、
+    conda activate DOCI
+   で実行環境を起動する
+2. Encoderを起動状態にする
+3. topic_return.pyを実行. 符号器で送信したデータを受信できる
+4. main.pyを実行.
+5. output.txtにバイナリにて復号結果が表示される
+```
 
 # センサ情報の取得
 topic_return.pyを実行していれば常に帰ってくる
 
-# ディレクトリ構造
+# ディレクトリ構成
+```
 C:.
-│  Decoder.sh
+│  decode.py # 復号処理実行ファイル 
+│  DOC_masking.py # mask実行
+│  img_capture_pyueye.py # 撮影
+│  img_cutting.py # 符号化画像切り出し
+│  main.py # 実行ファイル
+│  pyueye_example_utils.py # pyueye設定ファイル
 │  README.md
-│  topic_return.py
+│  topic_publish.py # topic送信
+│  topic_return.py # topic受信
 │
-├─DOC_
-  │  Decoder_myfunction.py
-  │  img_capture_pyueye.py
-  │  img_cutting.py
-  │  img_DOC_decode.py
-  │  pyueye_example_utils.py
-  │  topic_publish.py
-  │  __init__.py
-  │
-  ├─img
-  │      DOC_0.jpg
-  │      DOC_1.jpg
-  │      DOC_2.jpg
-  │
-  ├─module_
-    │  pyueye_example_camera.py
-    │  pyueye_example_camera.pyc
-    │  pyueye_example_gui.py
-    │  pyueye_example_gui.pyc
-    │  pyueye_example_main.py
-    │  pyueye_example_main1.py
-    │  pyueye_example_main4.py
-    │  pyueye_example_utils.py
-    │  pyueye_example_utils.pyc
-
+├─DOC_output # DOC結果
+│      DOC_decode_1.png # 復号画像
+│      output.txt # 復号結果表示
+│
+├─img
+│  │  DOC_0.png # 全点灯
+│  │  DOC_1.png # 全消灯
+│  │  DOC_2.png # 符号化画像表示
+│  │
+│  ├─cutting # 切り出し画像フォルダ
+│  │  ├─1 # 
+│  │  │  │  encode_image_encoder_id_1.png # 符号化画像
+│  │  │  │
+│  │  │  └─decode
+│  │  │          decode_mask_1.png # マスク画像
+│  │  │          DOC_decode_1.png # 復号画像
+│  │  │
+│  │  ├─2
+│  │  ├─3
+│  │  ├─4
+│  │  └─5
+│  └─post # 符号化画像切り出し精度の確認用
+│          image_abs_gray.png
+│          image_capture_binary.png
+│          image_contours.png
+│          image_thre.png # 符号化画像をうまく切り出せているか確認
+│
+└─module_　# pyueye用モジュール
+```
