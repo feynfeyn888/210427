@@ -1,5 +1,5 @@
 ## Quick Start
-Encoder/topic_subscribe.pyを実行する
+```Encoder/topic_subscribe.py```を実行する(python3であることを確認の上、実行)
 
 ## IP address
 
