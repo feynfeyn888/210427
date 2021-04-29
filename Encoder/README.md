@@ -45,6 +45,7 @@ Atmospheric pressure: (0〜100)[%][hPa]     [b5b4b3b2b1b0]
 Humidity: (0〜100)[%]  [c5c4c3c2c1c0]
 ```
 4. RGBそれぞれに符号化画像を表示したのち、```topic{ device_id }_return```にセンサ情報を送信する。センサ情報の割り当ては以下の通り。
+
 ```Group_ID/Device_ID/hour:minute:second/温度/圧力/湿度 ```
 
 
