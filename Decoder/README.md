@@ -36,7 +36,7 @@ C:.
 │  │  DOC_2.png # 符号化画像表示
 │  │
 │  ├─cutting # 切り出し画像フォルダ
-│  │  ├─1 # 
+│  │  ├─1 # 切り出し番号(Device番号と非対応)
 │  │  │  │  encode_image_encoder_id_1.png # 符号化画像
 │  │  │  │
 │  │  │  └─decode
