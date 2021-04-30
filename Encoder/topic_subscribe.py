@@ -2,6 +2,9 @@
 
 #Params---------------------------------------------------------------
 
+# Device_ID
+ID = 1
+
 # query bit length
 bit_length = 16
 
@@ -19,15 +22,30 @@ LED_array_length = 64
 Group_ID = [0,1,0]
 
 #Node_ID is varied according to Edge(IoT device)
-Node_ID = [0,0,0]
+Node_ID_1 = [0,0,1]
+Node_ID_2 = [0,1,0]
+Node_ID_3 = [0,1,1]
+Node_ID_4 = [1,0,0]
+Node_ID_5 = [1,0,1]
 
+if ID == 1:
+    Node_ID = Node_ID_1
+elif ID == 2:
+    Node_ID = Node_ID_2
+elif ID == 3:
+    Node_ID = Node_ID_3
+elif ID == 4:
+    Node_ID = Node_ID_4
+elif ID == 5:
+    Node_ID = Node_ID_5
 prefix = Group_ID + Node_ID
 
 # 点灯間隔
 break_time = 5
 
 # PCに返信するtopic先。デバイス番号に合わせて"topic{ デバイス番号 }_return"にする
-topic_return = "topic1_return"
+topic = "topic"+str(ID)
+topic_return = "topic"+str(ID)+"_return"
 
 import paho.mqtt.client as mqtt
 import time
@@ -69,7 +87,7 @@ mqttc.on_message = on_message  # メッセージ受信時に実行するコー�
 mqttc.on_connect = on_connect
 mqttc.connect(MQTT_HOST, MQTT_PORT, MQTT_KEEP_ALIVE)
 
-mqttc.subscribe("topic1")  # Topic名："topic1"を購読
+mqttc.subscribe("topic5")  # Topic名："topic1"を購読
 
 
 # 受信状態管理 初期設定
@@ -193,8 +211,13 @@ while run: # topicを受け取ったらスタート
         R = myfunc.spatial_encode(R_x, R_y, bit_length, r_intensity, LED_array_length)
         G = myfunc.spatial_encode(G_x, G_y, bit_length, g_intensity, LED_array_length)
         B = myfunc.spatial_encode(B_x, B_y, bit_length, b_intensity, LED_array_length)
-
+        
+        # 波長多重表示
         image_array = myfunc.set_array(R, G, B , LED_array_length)
+
+        # 単色表示
+        #color = B
+        #image_array = myfunc.set_array(color, color, color, LED_array_length)
 
         sense.set_pixels(image_array)
         time.sleep(break_time)
