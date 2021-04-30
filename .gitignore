@@ -1,4 +1,5 @@
 # 
 *.pyc
 
+# README.mdの変更は無視する
 *.md
