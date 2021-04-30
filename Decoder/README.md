@@ -26,6 +26,8 @@ C:.
 │  topic_publish.py # topic送信
 │  topic_return.py # topic受信
 │
+|  DOCI.yml # 仮想環境ファイル
+|
 ├─DOC_output # DOC結果
 │      DOC_decode_1.png # 復号画像
 │      output.txt # 復号結果表示
