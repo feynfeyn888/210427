@@ -51,7 +51,7 @@ C:.
 │          image_abs_gray.png
 │          image_capture_binary.png
 │          image_contours.png
-│          image_thre.png # 符号化画像をうまく切り出せているか確認
+│          image_thre.png # 符号化画像をうまく切り出せているか確認. うまく復号ができない場合は切り出しがうまくいっていない可能性が高いので確認する.
 │
 └─module_　# pyueye用モジュール
 ```
