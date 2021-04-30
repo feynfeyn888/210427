@@ -12,7 +12,7 @@ ssh {user}@{IP address}
 
 ## 実行手順
 ```
-sshで各ラズパイの送受信実行ファイル```topic_subscriber.py```を起動したのち、PCで```main.py```を実行する.
+sshで各ラズパイの送受信実行ファイル**topic_subscriber.py**を起動したのち、PCで```main.py```を実行する.
 各符号器のセンサデータを取得する場合はtopic_return.pyも実行する.
 ```
 
