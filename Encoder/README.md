@@ -52,7 +52,7 @@ Humidity: (0〜100)[%]  [c5c4c3c2c1c0]
 1. Wi-fiのアイコンを右クリック、Wireless&Wired Network Settingsを開く
 2. interface->wlan0にしたのち、以下のように設定する
 ```
-IPv4 Address:172.16.120.{2~254の間で設定(arp -aで空いているIPアドレスを調べたうえで固定化する)}
+IPv4 Address:172.16.120.{2~254の間で設定(コマンドarp -aで空いているIPアドレスを調べたうえで固定化する)}
 Router:172.16.120.254
 DNS Servers: 133.1.173.70
 ```
