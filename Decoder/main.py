@@ -33,7 +33,7 @@ query = "10101001"
 # 撮影露光時間(ms)
 exposure_time = 50.0
 
-# 撮影間隔
+# 撮影間隔(s)
 break_time = 4
 
 # path
