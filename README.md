@@ -11,7 +11,7 @@ ssh {user}@{IP address}
 ```
 
 ## 実行手順
-sshで各ラズパイの送受信実行ファイルを起動したのち、PCでmain.pyを実行する.
+sshで各ラズパイの送受信実行ファイル```topic_subscriber.py```を起動したのち、PCで```main.py```を実行する.
 
 詳細は各フォルダ```README.md```参照
 
