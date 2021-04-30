@@ -87,7 +87,7 @@ mqttc.on_message = on_message  # メッセージ受信時に実行するコー�
 mqttc.on_connect = on_connect
 mqttc.connect(MQTT_HOST, MQTT_PORT, MQTT_KEEP_ALIVE)
 
-mqttc.subscribe("topic5")  # Topic名："topic1"を購読
+mqttc.subscribe(topic)  # Topic名："topic1"を購読
 
 
 # 受信状態管理 初期設定
