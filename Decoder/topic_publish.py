@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 
 import paho.mqtt.client as mqtt  # ライブラリのimport
 import paho.mqtt.publish as publish
@@ -6,7 +8,12 @@ from time import sleep
 import time
 from datetime import datetime
 
-# -*- coding: utf-8 -*-
+# S1:172.16.120.55
+# S2:172.16.120.56
+# S3:172.16.120.57
+# S4:172.16.120.59
+# S5:172.16.120.52
+# Broker:172.16.120.63
 
 # broker接続時
 def on_connect(mqttc, obj, flags, rc):
@@ -27,10 +34,10 @@ def publish(MQTT_HOST, MQTT_PORT, MQTT_KEEP_ALIVE, query):
     mqttc.publish("topic5", query)
 
 if __name__ == "__main__":
-    
+    # Broker:172.16.120.63
     query = "10101001"
     print("query:", query)
     
-    publish(MQTT_HOST="172.16.120.148", MQTT_PORT=1883, MQTT_KEEP_ALIVE=60, query=query)
+    publish(MQTT_HOST="172.16.120.63", MQTT_PORT=1883, MQTT_KEEP_ALIVE=60, query=query)
     print("publish")
 
