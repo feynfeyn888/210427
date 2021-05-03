@@ -3,8 +3,16 @@
 import paho.mqtt.client as mqtt
 import time
 
+# S1:172.16.120.55
+# S2:172.16.120.56
+# S3:172.16.120.57
+# S4:172.16.120.59
+# S5:172.16.120.52
+# Broker:172.16.120.63
+
+
 # MQTT Broker
-MQTT_HOST = "172.16.120.148"       # brokerのアドレス
+MQTT_HOST = "172.16.120.63"       # brokerのアドレス
 MQTT_PORT = 1883                # brokerのport
 MQTT_KEEP_ALIVE = 60            # keep alive
 
