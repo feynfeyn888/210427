@@ -64,7 +64,7 @@ myfunc = Encoder_myfunction.MyClass()
 sense = SenseHat()
 
 # MQTT Broker
-MQTT_HOST = "172.16.120.148"       # brokerのアドレス
+MQTT_HOST = "172.16.120.63"     # brokerのアドレス
 MQTT_PORT = 1883                # brokerのport
 MQTT_KEEP_ALIVE = 60            # keep alive
 
