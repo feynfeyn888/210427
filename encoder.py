@@ -3,7 +3,7 @@
 #Params---------------------------------------------------------------
 
 # Device_ID
-ID = 1
+ID = 4
 
 # query bit length
 bit_length = 16
@@ -31,14 +31,64 @@ Node_ID_5 = [1,0,1]
 
 if ID == 1:
     Node_ID = Node_ID_1
+    zzz = [
+           w,w,w,w,w,w,w,w,
+           w,w,w,e,e,w,w,w,
+           w,w,e,w,e,w,w,w,
+           w,w,w,w,e,w,w,w,
+           w,w,w,w,e,w,w,w,
+           w,w,w,w,e,w,w,w,
+           w,w,e,e,e,e,w,w,
+           w,w,w,w,w,w,w,w,
+           ]
 elif ID == 2:
     Node_ID = Node_ID_2
+    zzz = [
+           w,w,w,w,w,w,w,w,
+           w,w,e,e,e,e,e,w,
+           w,w,e,w,w,w,e,w,
+           w,w,w,w,w,e,w,w,
+           w,w,w,w,e,w,w,w,
+           w,w,w,e,w,w,w,w,
+           w,e,e,e,e,e,e,w,
+           w,w,w,w,w,w,w,w,
+          ]
 elif ID == 3:
     Node_ID = Node_ID_3
+    zzz = [
+           w,w,w,w,w,w,w,w,
+           w,e,e,e,e,e,w,w,
+           w,w,w,w,w,e,w,w,
+           w,w,e,e,e,e,w,w,
+           w,w,w,w,w,e,w,w,
+           w,w,w,w,w,e,w,w,
+           w,e,e,e,e,e,w,w,
+           w,w,w,w,w,w,w,w,
+           ]
 elif ID == 4:
     Node_ID = Node_ID_4
+    zzz = [
+           w,w,w,w,w,w,w,w,
+           w,w,w,e,e,w,w,w,
+           w,w,e,w,e,w,w,w,
+           w,e,w,w,e,w,w,w,
+           w,e,e,e,e,e,w,w,
+           w,w,w,w,e,w,w,w,
+           w,w,w,w,e,w,w,w,
+           w,w,w,w,w,w,w,w,
+           ]
 elif ID == 5:
     Node_ID = Node_ID_5
+    zzz = [
+           w,w,w,w,w,w,w,w,
+           w,e,e,e,e,e,e,w,
+           w,e,w,w,w,w,w,w,
+           w,e,e,e,e,e,e,w,
+           w,w,w,w,w,w,e,w,
+           w,w,w,w,w,w,e,w,
+           w,e,e,e,e,e,e,w,
+           w,w,w,w,w,w,w,w,
+           ]
 prefix = Group_ID + Node_ID
 
 # 点灯間隔
@@ -99,32 +149,23 @@ run = True
 
 # 受信回数
 i = 0
+com_key=None
 while run: # topicを受け取ったらスタート
     # 割り込み処理
     mqttc.loop()  # 永久ループ
     if on_message_Flag: # 受信するとTrueになる
-        binary_query = [int(i) for i in query]
         
         # 全点灯表示
-        if binary_query=="0":
-            z4 = [
-                w,w,w,w,w,w,w,w,
-                w,w,w,e,e,w,w,w,
-                w,w,e,w,e,w,w,w,
-                w,w,w,w,e,w,w,w,
-                w,w,w,w,e,w,w,w,
-                w,w,w,w,e,w,w,w,
-                w,w,e,e,e,e,w,w,
-                w,w,w,w,w,w,w,w,
-                ]
-            sense.set_pixels(z4)
+        if query[0]=="2":
+
+            sense.set_pixels(zzz)
             time.sleep(break_time)
             sense.clear()
 
             time.sleep(break_time)
         
         # 符号化画像表示
-        elif binary_query=="2":
+        elif query[0]=="3":
             # time
             now = datetime.now()
             hour = now.hour
@@ -169,9 +210,8 @@ while run: # topicを受け取ったらスタート
             #query choice-----------------------------------------------------
             print("query:",query)
             
-            if com_key==None:
-                com_key = 10101001
-                print("com_keyが定義されていません. default_keyの{}を使用します.").format(com_key)
+            binary_query = [int(i) for i in query[1:9]]
+            com_key=binary_query*2
             print("com_key:",com_key)
 
             # spatial encode
@@ -207,12 +247,6 @@ while run: # topicを受け取ったらスタート
             # サーバに送信
             mqttc.publish(str(topic_return), Device_info)
         
-        # 鍵送信、先頭が3のとき
-        elif binary_query[0]=="3":
-            com_key = binary_query[1:-1]*2
-            print("com_key:",com_key)
-        
-            
         else:
             i=i+1
             print("test:", i)
