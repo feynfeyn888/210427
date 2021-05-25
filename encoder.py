@@ -157,16 +157,27 @@ while run: # topicを受け取ったらスタート
         
         # 全点灯表示
         if query[0]=="2":
+            
+            sense.clear()
 
             sense.set_pixels(zzz)
             time.sleep(break_time)
-            sense.clear()
-
             time.sleep(break_time)
+            
+        
+        
+        # 全点灯表示
+        elif query[0]=="3":
+            
+            sense.clear()
+        
         
         # 符号化画像表示
-        elif query[0]=="3":
+        elif query[0]=="4":
             # time
+            
+            sense.clear()
+
             now = datetime.now()
             hour = now.hour
             minute = now.minute
@@ -238,8 +249,6 @@ while run: # topicを受け取ったらスタート
             #image_array = myfunc.set_array(color, color, color, LED_array_length)
 
             sense.set_pixels(image_array)
-            time.sleep(break_time)
-            sense.clear()
             
             # 送信するデバイス情報
             Device_info = ''.join(map(str, prefix[0:3])) + "/" + ''.join(map(str, prefix[3:6])) + "/" + str(hour) + ":" + str(minute) + ":" + str(second) + "/" + str(temperature) + "/" + str(pressure) +"/" + str(humidity)
@@ -366,7 +375,6 @@ while run: # topicを受け取ったらスタート
 
             sense.set_pixels(image_array)
             time.sleep(break_time)
-            sense.clear()
             
             # 送信するデバイス情報
             Device_info = ''.join(map(str, prefix[0:3])) + "/" + ''.join(map(str, prefix[3:6])) + "/" + str(hour) + ":" + str(minute) + ":" + str(second) + "/" + str(temperature) + "/" + str(pressure) +"/" + str(humidity)
