@@ -3,7 +3,7 @@
 #Params---------------------------------------------------------------
 
 # Device_ID
-ID = 4
+ID = 1
 
 # query bit length
 bit_length = 16
@@ -113,6 +113,10 @@ myfunc = Encoder_myfunction.MyClass()
 
 #Sensehat class
 sense = SenseHat()
+
+#起動時点灯
+sense.clear()
+sense.set_pixels(zzz)
 
 # MQTT Broker
 MQTT_HOST = "172.16.120.63"     # brokerのアドレス
