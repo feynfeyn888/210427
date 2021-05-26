@@ -21,7 +21,7 @@ C:.
 │  img_capture_pyueye.py # 撮影
 │  img_cutting.py # 符号化画像切り出し
 │  main.py # 実行ファイル
-│  pyueye_example_utils.py # pyueye module
+│  pyueye_example_utils.py # pyueye module. img_capture_pyueyeで使用する.
 │  README.md
 │  topic_publish.py # topic送信
 │  topic_return.py # topic受信
