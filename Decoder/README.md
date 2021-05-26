@@ -21,7 +21,7 @@ C:.
 │  img_capture_pyueye.py # 撮影
 │  img_cutting.py # 符号化画像切り出し
 │  main.py # 実行ファイル
-│  pyueye_example_utils.py # pyueye設定ファイル
+│  pyueye_example_utils.py # pyueye module
 │  README.md
 │  topic_publish.py # topic送信
 │  topic_return.py # topic受信
@@ -55,5 +55,5 @@ C:.
 │          image_contours.png
 │          image_thre.png # 符号化画像をうまく切り出せているか確認. うまく復号ができない場合は切り出しがうまくいっていない可能性が高いので確認する(許容する矩形サイズや閾値を変更).
 │
-└─module_　# pyueye用モジュール
+└─module_　# その他モジュール
 ```
