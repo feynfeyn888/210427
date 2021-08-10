@@ -55,7 +55,7 @@ class MyClass:
         for i in range(length):
             if b[i]==0:
                 b_[i]=1
-            elif a[i]==1:
+            elif b[i]==1:
                 b_[i]=0 
 
         #x生成 (a*b)
