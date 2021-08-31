@@ -55,7 +55,8 @@ Humidity: (0〜100)[%]  [c5c4c3c2c1c0]
 1. Wi-fiのアイコンを右クリック、Wireless&Wired Network Settingsを開く
 2. interface->wlan0にしたのち、以下のように設定する
 ```
-Router:192.168.100.1DNS Servers: コマンドで調べる
+Router:192.168.100.1
+DNS Servers: コマンドで調べる
 ```
 
 ## 開発について
