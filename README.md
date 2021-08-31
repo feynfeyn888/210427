@@ -47,8 +47,8 @@ OpenCVで背景差分法を用いて画像を切り出すとき, 画像が回転
 
 ## 開発環境
 ```
-PC:VSCode
-ラズパイ:Python IDE or PCからssh接続してVimでファイル編集を行う
+PC:VSCode(condaで仮想環境 DOCI を立ち上げる)
+ラズパイ:Python IDE or PCからssh接続してVimでファイル編集を行う.
 ```
 
 ## ソースファイルの印刷
