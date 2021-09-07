@@ -19,13 +19,9 @@ class MyClass:
         s1 = list(msg.payload)
         print("s1(Query)",s1)
 
-        #Queryで渡される値。Publisher側で指定している
+        #Query Value. Publisher側で指定
         a = [int(i) for i in s1]
         print("a",a)
-
-        #今は [1, 0, 1, 0, 1, 1, 0, 1] = 1 Byte
-        #これを2倍
-        # [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1]
 
     #----------------------------------------------------------------
 
@@ -37,14 +33,13 @@ class MyClass:
 
         #bit_length = 16
         length = bit_length
-
-        #aと同じ長さの行列を作成する。ここではそれぞれ1×6行列
+        
         a_ = np.zeros(length,dtype=np.int)
         b_ = np.zeros(length,dtype=np.int)
         x = np.zeros(length,dtype=np.int)
         y = np.zeros(length,dtype=np.int)
 
-        #a_に変換.1と0を反転させる
+        #a_に変換.1と0を反転
         for i in range(length):
             if a[i]==0:
                 a_[i]=1
@@ -76,9 +71,7 @@ class MyClass:
                 y[i]=1
             elif c[i]==False:
                 y[i]=0
-
-        #reshape([])
-        #引数の使い方がよくわからん
+        
         x = np.reshape(x,(1,length))
         y = np.reshape(y,(1,length))
         x = x[0].tolist()
@@ -87,17 +80,12 @@ class MyClass:
         return x,y
 
     def spatial_encode(self, input_x, input_y, bit_length, intensity, LED_array_length):
-
-        # intensity means "Intensity of light"
-
-        # 空のnumpy配列を生成
+       
         l=np.array([[0] for i in range(LED_array_length)])
 
         for i in range(bit_length):
-            #LED上の配列をここで指定
+            #LED上の配列
             index = i//4
-            #iを4で割ったときの商。これに8をかければLEDの点灯箇所を指定できる。ここで、iは入力input_x,Yの符号長ということに注意。
-            #また最大値は3(4かも?)になる。これは1bitを表すのに2*2の符号化画像を使うので、4*16=64で、8*8のLEDアレイと一致する    
 
             #左上
             if input_x[i]==0 and input_y[i]==0:
@@ -115,16 +103,12 @@ class MyClass:
             if input_x[i]==1 and input_y[i]==1:
                 l[2*i + index*8+9][0] = intensity
 
-            #次の2*2の符号化画像アレイに移る
-
-        #reshape & tolist()x = np.reshape(x,(1,length))
         l = np.reshape(l,(1,LED_array_length)) 
         l = l[0].tolist()
 
         return l
 
     def set_array(self, R, G, B, LED_array_length):
-        # 空のnumpy配列を生成
         image_array = []
 
         for i in range(LED_array_length):
